@@ -85,4 +85,28 @@ view: inventory_items {
     type: count
     drill_fields: [id, product_name, products.id, products.name, order_items.count]
   }
+
+  measure: product_count{
+    type: count_distinct
+    description: "Distinct Count of Product ID"
+    sql: ${product_id} ;;
+  }
+
+  measure: Total_Cost {
+    type: sum
+    description: "Total of Cost"
+    sql: ${cost} ;;
+  }
+
+  measure: Average_Cost {
+    type: average
+    description: "Average of Cost"
+    sql: ${cost} ;;
+  }
+
+  measure: Running_total_cost {
+    type: running_total
+    sql: ${cost} ;;
+
+  }
 }
