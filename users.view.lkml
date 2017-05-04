@@ -41,6 +41,11 @@ dimension: days_since_signup {
   sql: datediff('day', ${created_date}, getdate()) ;;
 }
 
+dimension: is_new_user{
+  type: yesno
+  sql: ${days_since_signup}<=90 ;;
+}
+
   dimension: email {
     type: string
     sql: ${TABLE}.email ;;
