@@ -106,7 +106,7 @@ view: inventory_items {
 
   measure: Running_total_cost {
     type: running_total
-    sql: ${cost} ;;
+    sql: ${Total_Cost} ;;
 
   }
 }
