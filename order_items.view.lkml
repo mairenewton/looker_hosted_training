@@ -102,12 +102,14 @@ view: order_items {
 
   measure: total_sale_price {
     description: "Sum of Sale Price"
+    value_format_name: usd
     type: sum
     sql: ${sale_price} ;;
   }
 
   measure:  average_sale_price {
     description: "Average of Sale Price"
+    value_format_name: usd
     type: average
     sql: ${sale_price} ;;
   }
