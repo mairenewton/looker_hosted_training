@@ -6,6 +6,10 @@ include: "*.view"
 # include all the dashboards
 include: "*.dashboard"
 
+explore:  user_facts {
+
+}
+
 explore: distribution_centers {}
 
 explore: etl_jobs {}
@@ -68,4 +72,11 @@ explore: products {
   }
 }
 
-explore: users {}
+explore: users {
+  join: user_facts {
+      type: left_outer
+      relationship: one_to_one
+      sql_on: ${users.id}=${user_facts.user_id} ;;
+  }
+
+}
