@@ -123,4 +123,18 @@ dimension: city_state_zip {
     type: count
     drill_fields: [id, first_name, last_name, events.count, order_items.count]
   }
+
+  measure: new_user_count {
+    type: count
+    filters: {
+      field: is_new_user
+      value: "Yes"
+    }
+  }
+
+  measure: new_user_rate {
+    type: number
+    sql: ${new_user_count}*1.0/${count} ;;
+    value_format_name: percent_2
+  }
 }
