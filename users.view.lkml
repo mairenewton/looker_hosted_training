@@ -56,6 +56,11 @@ view: users {
     sql: ${TABLE}.last_name ;;
   }
 
+dimension: full_name {
+  type: string
+  sql: ${first_name}||' '||${last_name} ;;
+}
+
   dimension: latitude {
     type: number
     sql: ${TABLE}.latitude ;;
@@ -81,6 +86,10 @@ view: users {
     sql: ${TABLE}.zip ;;
   }
 
+dimension: city_state_zip {
+  type:  string
+  sql:  ${city}||', '||${state}||' '||${zip} ;;
+}
   measure: count {
     type: count
     drill_fields: [id, first_name, last_name, events.count, order_items.count]
