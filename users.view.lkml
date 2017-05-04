@@ -38,7 +38,7 @@ view: users {
 
 dimension: days_since_signup {
   type: number
-  sql: datediff('day', ${created_date}, getdate() ;;
+  sql: datediff('day', ${created_date}, getdate()) ;;
 }
 
   dimension: email {
