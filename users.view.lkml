@@ -46,6 +46,13 @@ dimension: days_since_signup {
   sql: datediff('day', ${created_date}, getdate()) ;;
 }
 
+dimension: days_since_signup_tier {
+  type: tier
+  tiers: [30, 90, 180, 360, 720,1000]
+  sql: ${days_since_signup};;
+  style: integer
+}
+
 dimension: is_new_user{
   type: yesno
   sql: ${days_since_signup}<=90 ;;
