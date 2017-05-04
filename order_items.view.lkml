@@ -98,7 +98,18 @@ view: order_items {
   measure:  count_distinct {
     type: count_distinct
     sql: ${order_id} ;;
+      }
 
+  measure: total_sale_price {
+    description: "Sum of Sale Price"
+    type: sum
+    sql: ${sale_price} ;;
+  }
+
+  measure:  average_sale_price {
+    description: "Average of Sale Price"
+    type: average
+    sql: ${sale_price} ;;
   }
 
   # ----- Sets of fields for drilling ------
