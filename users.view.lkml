@@ -12,6 +12,11 @@ view: users {
     sql: ${TABLE}.age ;;
   }
 
+  dimension: is_minor {
+    type: yesno
+    sql: ${age}<21 ;;
+  }
+
   dimension: city {
     type: string
     sql: ${TABLE}.city ;;
