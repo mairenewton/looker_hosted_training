@@ -88,7 +88,7 @@ dimension: full_name {
 
 dimension: city_state_zip {
   type:  string
-  sql:  ${city}||', '||${state}||', '||${zip}||', '||${country} ;;
+  sql:  ${city}||' '||${state}||' '||${zip}||' '||${country} ;;
 }
   measure: count {
     type: count
