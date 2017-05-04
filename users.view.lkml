@@ -83,7 +83,7 @@ view: users {
 
   dimension: address {
     type: string
-    sql: ${city}||' '||${state}||' '||${country} ;;
+    sql: ${city}||' '||${state}||' '||${zip}||' '||${country}  ;;
   }
 
   measure: count {
