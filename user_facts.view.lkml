@@ -9,6 +9,9 @@ view: user_facts {
       from public.order_items
       group by 1
        ;;
+      sql_trigger_value: select max(created_at)from public.order_items ;;
+      sortkeys: ["user_id"]
+      distribution: "user_id"
   }
 
   measure: count {
@@ -41,6 +44,10 @@ view: user_facts {
     sql: ${TABLE}.latest_order_date ;;
   }
 
+measure:average_lifetime_value {
+  type: average
+  sql: ${total_lifetime_sales} ;;
+}
   set: detail {
     fields: [user_id, total_lifetime_sales, lifetime_item_count, first_order_date_time, latest_order_date_time]
   }
