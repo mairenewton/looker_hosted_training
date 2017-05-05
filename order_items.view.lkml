@@ -81,7 +81,16 @@ view: order_items {
 
   dimension: status {
     type: string
-    sql: ${TABLE}.status ;;
+    sql: ${TABLE}.status
+    html:
+      {% if status == "Completed" % }
+      <background-color: "darkgreen">{{linked_value}}</background>
+      {% elsif status == "Canceled" or status =="Returned") %}
+      <background-color: "darkred"> {{linked_value}}</background>
+      {% elsif status == "Processing" or status == "Shipped") %}
+      <background-color:"goldenrod">{{linked_value}}</background>
+      {% endif %}
+    ;;
   }
 
   dimension: user_id {
