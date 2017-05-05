@@ -81,7 +81,7 @@ view: order_items {
 
   dimension: status {
     type: string
-    sql: ${TABLE}.status
+    sql: ${TABLE}.status;;
     html:
       {% if status == "Complete" % }
       <p style = "background-color: darkgreen">{{value}}</p>
