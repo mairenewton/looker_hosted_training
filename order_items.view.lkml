@@ -84,11 +84,11 @@ view: order_items {
     sql: ${TABLE}.status
     html:
       {% if status == "Completed" % }
-      <background-color: "darkgreen">{{value}}</background>
+      <p style= "background-color: darkgreen">{{value}}</p>
       {% elsif status == "Canceled" or status =="Returned") %}
-      <background-color: "darkred"> {{value}}</background>
+      <p style ="background-color: darkred"> {{value}}</p>
       {% elsif status == "Processing" or status == "Shipped") %}
-      <background-color:"goldenrod">{{value}}</background>
+      <p style="background-color: goldenrod">{{value}}</p>
       {% endif %}
     ;;
   }
